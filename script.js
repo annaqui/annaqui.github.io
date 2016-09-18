@@ -10,5 +10,5 @@ $(document).ready(function () {
     });
     
     //insert current year into footer
-    $(document).getElementById("year").innerHTML = new Date().getFullYear();
+    document.getElementById("year").innerHTML = new Date().getFullYear();
 });
