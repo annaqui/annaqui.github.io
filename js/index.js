@@ -9,4 +9,4 @@ $(document).on('click','.navbar-collapse.in',function(e) {
 });
 
 //insert current year into footer
-$("#year").html(new Date().getFullYear());
+$("#year").text(new Date().getFullYear());
