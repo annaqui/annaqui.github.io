@@ -1,8 +1,5 @@
 //Scrollspy, to change active menu item when scrolling
     $('body').scrollspy({ target: '.navbar-default' })
-
-$(document).ready(function () {
-    
     
     //To close the dropdown menu after clicking - from twbs Github issue
     $(document).on('click','.navbar-collapse.in',function(e) {
@@ -13,4 +10,3 @@ $(document).ready(function () {
     
     //insert current year into footer
     $("#year").html(new Date().getFullYear());
-});
