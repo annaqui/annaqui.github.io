@@ -10,4 +10,5 @@ $(document).ready(function () {
     });
     
     //insert current year into footer
+    $("#year").html(new Date().getFullYear(););
 });
