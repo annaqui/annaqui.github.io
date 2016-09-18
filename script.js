@@ -1,6 +1,8 @@
-$(document).ready(function () {
-    //Scrollspy, to change active menu item when scrolling
+//Scrollspy, to change active menu item when scrolling
     $('body').scrollspy({ target: '.navbar-default' })
+
+$(document).ready(function () {
+    
     
     //To close the dropdown menu after clicking - from twbs Github issue
     $(document).on('click','.navbar-collapse.in',function(e) {
