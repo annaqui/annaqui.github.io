@@ -1,0 +1,91 @@
+/*
+Some colours to use:
+Jet: #312F2F
+Licorice: #171219
+Polished Pine: #58B09C
+Japanese Indigo: #2A3D45
+Pastel Gray: #CBD4C2
+Persion Orange: #DB995A
+Nyanza: #DFF2D8
+*/
+
+body {
+  color: rgba(0, 0, 0, 0.74);
+  font-family: 'Lato', sans-serif;
+}
+
+h1,
+a.navbar-brand {
+  font-family: 'Comfortaa', cursive;
+  color: #2A3D45;
+}
+
+.navbar-default .navbar-nav>.active>a{
+  background-color: rgba(88, 176, 156,0.5);
+}
+
+a {
+  color: #a7ffeb;
+}
+
+.nav a {
+  color: #2A3D45;
+}
+
+header {
+  background: url('https://hd.unsplash.com/photo-1472152083436-a6eede6efad9') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100vh;
+  font-size: 1.2em;
+  padding-top: 70px;
+}
+
+#portfolio {
+  background-color: #CBD4C2;
+}
+
+
+
+section {
+  border-top: thick solid #009688;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+a > img {
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+a:hover > img {
+  -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  -o-filter: grayscale(0%);
+  -ms-filter: grayscale(0%);
+  filter: grayscale(0%);
+}
+
+#contact {
+  background-color: #4db6ac;
+}
+
+nav, .navbar-default,
+footer {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.about {
+  background-color: rgba(255, 255, 255, 0.80);
+}
+
+#contact li {
+  list-style: none;
+  display: inline-block;
+  padding: 3vw;
+}
