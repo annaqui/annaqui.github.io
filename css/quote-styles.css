@@ -1,0 +1,15 @@
+body {
+	font-family: 'PT Sans', sans-serif;
+	font-size: 18px;
+}
+#quote-box {
+	font-family: 'Cormorant Garamond', serif;
+	margin-top: 200px;
+}
+#quote {
+	font-size: 24px;
+}
+
+#attributed {
+	font-style: italic;
+}
