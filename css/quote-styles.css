@@ -1,10 +1,14 @@
 body {
 	font-family: 'PT Sans', sans-serif;
 	font-size: 18px;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
 }
 #quote-box {
+	padding-top: 25vh;
 	font-family: 'Cormorant Garamond', serif;
-	margin-top: 200px;
+	
 }
 #quote {
 	font-size: 24px;
