@@ -25,10 +25,17 @@ function retrieveQuote(){
       url: 'https://crossorigin.me/http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1',
       success: function(data) {
         var post = data.shift(); // The data is an array of posts. Grab the first one.
-        $('#attributed').html(post.title);
-        $('#quote').html(post.content);
-        $('#tweetThis').attr('href', "https://twitter.com/intent/tweet?text=" + $(post.content).text() + ' - ' + post.title);
-        $('#quote').attr('cite', post.link);
+        //Check if quote plus author plus hypehn are short enought to Tweet.
+        //This makes it a recursive function but relies on there being enough quotes being short of enough to Tweet
+        if (post.title.length + post.content.length + 3 > 140){
+        	retrieveQuote();
+        }
+        else{
+	        $('#attributed').html(post.title);
+	        $('#quote').html(post.content);
+	        $('#tweetThis').attr('href', "https://twitter.com/intent/tweet?text=" + $(post.content).text() + ' - ' + post.title);
+	        $('#quote').attr('cite', post.link);
+    	}
       },
       cache: false
     });
