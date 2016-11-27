@@ -20,10 +20,16 @@
 	"custom_meta":{"Source":"<a href=\"https:\/\/shop.gestalten.com\/index.php\/catalog\/product\/view\/id\/4015#moreinfo\">Book Description<\/a>"}
 }] */
 
- $(document).ready(function() {
- 	 $("#getQuote").on("click", function(){
- 	 	$.getJSON("https://crossorigin.me/http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=", function(a) {
+function retrieveQuote(){
+	$.getJSON("https://crossorigin.me/http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=", function(a) {
  	 	$("#quote").append(a[0].content + "<p>&mdash; " + a[0].title + "</p>")
 		});
+}
+
+ $(document).ready(function() {
+ 	 $.ajaxSetup({ cache: false });
+ 	 retrieveQuote();
+ 	 $("#getQuote").on("click", function(){
+ 	 	retrieveQuote(); 	 	
  	});
  });
