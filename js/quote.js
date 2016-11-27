@@ -2,16 +2,16 @@
 //1. User Story: I can click a button to show me a new random quote.
 
 //Retrieve Quote and Author from API
-//Insert quote into the span with id #quote
+//Insert quote into the blockquote with id #quote
 //Insert author into paragraph with id #attributed
+//Set cite attribute in Blockquote to the link the Quote came from.
 
 //2. User Story: I can press a button to tweet out a quote.
-//Append Tweet URL in anchor with id #tweetit with quote and author:  'https://twitter.com/intent/tweet' + quote +  " - "  + author
+//Set Tweet URL in anchor with id #tweetit with quote and author:  'https://twitter.com/intent/tweet' + quote +  " - "  + author
 
 
 /*'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1'
-
-
+Returns quotes in this format:
 [{
 	"ID":1762,
 	"title":"R. Klanten, H. Hellige",
@@ -21,7 +21,6 @@
 }] */
 
 function retrieveQuote(){
-
 	$.ajax( {
       url: 'https://crossorigin.me/http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1',
       success: function(data) {
@@ -29,8 +28,7 @@ function retrieveQuote(){
         $('#attributed').html(post.title);
         $('#quote').html(post.content);
         $('#tweetThis').attr('href', "https://twitter.com/intent/tweet?text=" + $(post.content).text() + ' - ' + post.title);
-
-
+        $('#quote').attr('cite', post.link);
       },
       cache: false
     });
