@@ -26,8 +26,13 @@ function retrieveQuote(){
       url: 'https://crossorigin.me/http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1',
       success: function(data) {
         var post = data.shift(); // The data is an array of posts. Grab the first one.
-        $('#attributed').text(post.title);
+        $('#attributed').html(post.title);
         $('#quote').html(post.content);
+        $('#tweetThis').attr('href', function() {
+		return this.href + $(post.content).text() + ' - ' + post.title;
+		});
+
+
       },
       cache: false
     });
