@@ -21,13 +21,19 @@
 }] */
 
 function retrieveQuote(){
-	$.getJSON("https://crossorigin.me/http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=", function(a) {
- 	 	$("#quote").append(a[0].content + "<p>&mdash; " + a[0].title + "</p>")
-		});
-}
+
+	$.ajax( {
+      url: 'https://crossorigin.me/http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1',
+      success: function(data) {
+        var post = data.shift(); // The data is an array of posts. Grab the first one.
+        $('#attributed').text(post.title);
+        $('#quote').text('&ldquo;' + post.content + '&rdquo;');
+      },
+      cache: false
+    });
+ };   
 
  $(document).ready(function() {
- 	 $.ajaxSetup({ cache: false });
  	 retrieveQuote();
  	 $("#getQuote").on("click", function(){
  	 	retrieveQuote(); 	 	
