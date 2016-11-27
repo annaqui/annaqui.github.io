@@ -28,9 +28,7 @@ function retrieveQuote(){
         var post = data.shift(); // The data is an array of posts. Grab the first one.
         $('#attributed').html(post.title);
         $('#quote').html(post.content);
-        $('#tweetThis').attr('href', function() {
-		return this.href + $(post.content).text() + ' - ' + post.title;
-		});
+        $('#tweetThis').attr('href', "https://twitter.com/intent/tweet?text=" + $(post.content).text() + ' - ' + post.title);
 
 
       },
