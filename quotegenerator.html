@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 <html>
 <head>
@@ -6,20 +8,22 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="stylesheet" href="css/quote-styles.css">
 	<link href="https://fonts.googleapis.com/css?family=Cormorant+Garamond:400,400i|PT+Sans" rel="stylesheet">
+
 	<script src="https://use.fontawesome.com/17670a7f7c.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>   
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
+	<script src="js/quote.js"></script>
 </head>
 <body>
     <div class ="container-fluid">
     	<div class="text-center" id="quote-box">
-			<blockquote cite="" class="text-center" id="quote">
-				<p>&ldquo;A word after a word after a word is power.&rdquo;</p>
+			<blockquote cite="" class="text-center">
+				<p>&ldquo;<span id="quote">A word after a word after a word is power.</span>&rdquo;</p>
 			</blockquote>
 			<p class="text-right" id="attributed">Margaret Atwood</p>
 			<div class="btn-group" role="group" aria-label="...">
-	  			<button type="button" class="btn btn-default"><i class="fa fa-refresh" aria-hidden="true"></i> New Quote</button>
-	  			<button type="button" class="btn btn-default"><i class="fa fa-twitter" aria-hidden="true"></i> Tweet this</button>
+	  			<button type="button" class="btn btn-default" id="getQuote"><i class="fa fa-refresh" aria-hidden="true"></i> New Quote</button>
+	  			<a class="btn btn-default" href="https://twitter.com/intent/tweet" id="tweetThis"><i class="fa fa-twitter" aria-hidden="true"></i> Tweet this</a>
 			</div>
     	</div>
     </div>
