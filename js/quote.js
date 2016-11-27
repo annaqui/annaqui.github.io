@@ -27,7 +27,7 @@ function retrieveQuote(){
       success: function(data) {
         var post = data.shift(); // The data is an array of posts. Grab the first one.
         $('#attributed').text(post.title);
-        $('#quote').text('&ldquo;' + post.content + '&rdquo;');
+        $('#quote').html(post.content);
       },
       cache: false
     });
