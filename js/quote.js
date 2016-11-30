@@ -12,7 +12,7 @@
 /*3. ToDo
 	a) Loading animation
 	b) Style: gradient backgrounds generated at random
-	c) More modern looking fonts
+	c) More modern looking
 */
 /*'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1'
 Returns quotes in this format:
@@ -26,11 +26,11 @@ Returns quotes in this format:
 
 function retrieveQuote(){
 	$.ajax( {
-      url: 'https://crossorigin.me/http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1',
+      url: 'https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1',
       success: function(data) {
         var post = data.shift(); // The data is an array of posts. Grab the first one.
         //Check if quote plus author plus hypehn are short enought to Tweet.
-        //This makes it a recursive function but relies on there being enough quotes being short of enough to Tweet
+        //This makes it a recursive function but relies on there being enough quotes being short enough to Tweet
         if (post.title.length + post.content.length + 3 > 140){
         	retrieveQuote();
         }
