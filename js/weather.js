@@ -39,7 +39,7 @@
 function retrieveWeather(){
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
-    var apiUrl = "api.openweathermap.org/data/2.5/weather?lat=" + position.coords.latitude; + "&lon=" + position.coords.longitude; + "&appid=f8d9912dca4764faaafe918d616b7a9c";    
+    var apiUrl = "api.openweathermap.org/data/2.5/weather?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&appid=f8d9912dca4764faaafe918d616b7a9c";    
 
     $.ajax( {
           url: apiUrl,
