@@ -47,8 +47,6 @@ if (navigator.geolocation) {
            }   
 
             }); 
-
-
    });
   }
 };
@@ -56,5 +54,5 @@ if (navigator.geolocation) {
   $(document).ready(function() {
   retrieveWeather();
 
-}
+});
 
