@@ -36,21 +36,25 @@
   - Open Weather Map request only one API call every 10 minutes, so better to calculate?
 
 */
-var lat;
-var lon;
-var apiUrl;
-
+function retrieveWeather(){
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
-    lat = position.coords.latitude; 
-    lon = position.coords.longitude;
+    var apiUrl = "api.openweathermap.org/data/2.5/weather?lat=" + position.coords.latitude; + "&lon=" + position.coords.longitude; + "&appid=f8d9912dca4764faaafe918d616b7a9c";    
+
+    $.ajax( {
+          url: apiUrl,
+          success: function(data) {
+           }   
+
+            }); 
+
+
    });
   }
-var apiUrl = "api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=f8d9912dca4764faaafe918d616b7a9c";    
+};
 
-$.ajax( {
-      url: apiUrl,
-      success: function(data) {
-       }   
+  $(document).ready(function() {
+  retrieveWeather();
 
-        }); 
+}
+
