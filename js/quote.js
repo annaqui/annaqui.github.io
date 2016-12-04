@@ -9,11 +9,6 @@
 //2. User Story: I can press a button to tweet out a quote.
 //Set Tweet URL in anchor with id #tweetit with quote and author:  'https://twitter.com/intent/tweet' + quote +  " - "  + author
 
-/*3. ToDo
-	a) Loading animation
-	b) Style: gradient backgrounds generated at random
-	c) More modern looking
-*/
 /*'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1'
 Returns quotes in this format:
 [{

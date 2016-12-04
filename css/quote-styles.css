@@ -3,10 +3,6 @@ body {
 	font-size: 18px;
 	align-items: center;
 	justify-content: space-around;
-	margin: 0;
-	background-color: coral;
-	background: linear-gradient(25deg, #FF8E8E, #F5A94C, #E0C15B);
-	height: 100vh;
 }
 #quote-box {
 	padding-top: 25vh;
@@ -18,9 +14,5 @@ body {
 }
 
 #attributed {
-	background: #000000;
-    display: inline-block;
-    box-shadow: 2px 2px 1px #777777;
-    color: #fff;
-    padding: 10px;
+	font-style: italic;
 }
