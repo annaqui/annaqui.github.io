@@ -39,14 +39,15 @@
 function retrieveWeather(){
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
-    var apiUrl = "api.openweathermap.org/data/2.5/weather?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&appid=f8d9912dca4764faaafe918d616b7a9c";    
-
+    var apiUrl = "http://api.openweathermap.org/data/2.5/weather?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&appid=f8d9912dca4764faaafe918d616b7a9c";    
     $.ajax( {
           url: apiUrl,
           success: function(data) {
-           }   
+            $('#location').html(post.name);
+            $('#temperature').html(post.main.temp);
+           }  
 
-            }); 
+      }); 
    });
   }
 };
