@@ -1,6 +1,5 @@
 body {
 	font-family: 'Roboto', sans-serif;
-	font-size: 32px;
 	margin:0px;
 	color: #fff;
 
@@ -36,23 +35,27 @@ body {
   padding-right: 0;
 }
 
-
-#weather {
-	height: 50vh;
+#top-bar{
+	height: 10vh;
 	background-color: #00BCD4;
 }
-#temperature {
-	height: 25vh;
+
+#weather {
+	height: 35vh;
+	background-color: #00BCD4;
+}
+#temp {
+	height: 35vh;
 	background-color: #0097A7;
 
 }
 #location {
-	height: 25vh;
+	height: 10vh;
 	background-color: #00838F;
 
 }
 #illustration {
-	height:50vh;
+	height: 45vh;
 	background-color: #ffffff;
 }
 

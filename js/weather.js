@@ -45,7 +45,7 @@ if (navigator.geolocation) {
           success: function(data) {
             $('#location').html(data.name);
             $('#weather').html(data.weather[0].main);
-            $('#temperature').html(data.main.temp + '&deg;' + 'c');            
+            $('#temperature').html(Math.round( data.main.temp ) + '&deg;');            
            }  
 
       }); 
