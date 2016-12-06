@@ -1,64 +1,37 @@
 body {
 	font-family: 'Roboto', sans-serif;
-	margin:0px;
-	color: #fff;
-
+	color: #212121;
+	font-size: 2em;
+	margin: 0;
 }
 
-[class*='col-'] {
-  float: left;
-}
 
-.col-half {
-  width: 50%;
-}
-.col-full {
-  width: 100%;
-}
 
-.grid:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-*, *:after, *:before {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-[class*='col-'] {
-  padding-right: 20px;
-}
-[class*='col-']:last-of-type {
-  padding-right: 0;
-}
-
-#top-bar{
-	height: 10vh;
-	background-color: #00BCD4;
-}
-
-#weather {
-	height: 35vh;
-	background-color: #00BCD4;
-}
-#temp {
-	height: 35vh;
-	background-color: #0097A7;
+.wrapper{
+	background: linear-gradient(45deg, rgba(0,100,255, 0.4), rgba(0,100,255, 0.1)); /* Standard syntax */
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
 
 }
-#location {
-	height: 10vh;
-	background-color: #00838F;
+ 
+.content {
+	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	padding: 0 5% 2% 5%;
+	margin-top: 5%;
+	}
 
-}
-#illustration {
-	height: 45vh;
-	background-color: #ffffff;
+.row {
+	margin: 5%;
 }
 
-.button {
-	background-color: #F50057;
+#changeunits {
+	background-color: #fffff;
+	padding: 5%;
+	
 }

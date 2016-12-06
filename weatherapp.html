@@ -10,25 +10,21 @@
 	<script src="js/weather.js"></script>
 </head>
 <body>
-	<div class="col-full" id="top-bar">
-		<h1>Local Weather</h1>
-	</div>
-	<div class="col-full" id="illustration">
-		Picture plus gradient
-	</div>
-	<div id="location" class="col-full">
-	</div>
-	<div id="weather" class="col-half">
-	</div>
-	<div id="temp" class="col-half">
-		<span id="temperature"></span><span id="unit">c</span>
-		<div class="col-full">
-			<div class="col-half">
-				&deg;c
+	<div class="wrapper">
+		<div class="content">
+			<div class="row">
+				<h1 id="location"></h1>
+			</div>	
+			<span id="weather"></span>
+			<div class="row" id="illustration">
+				<i class="fa fa-cloud fa-5x"></i>
 			</div>
-			<div class="col-half">
-				&deg;f
-			</div>
+			<div class="row">
+				<span id="temperature"></span><span id="unit">c</span>
+			</div>	
+			<div class="row">
+				<button id="changeunits">Use &deg;f</button>
+			</div>	
 		</div>
 	</div>
 </body>
