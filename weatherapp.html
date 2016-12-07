@@ -4,26 +4,29 @@
     <meta charset="utf-8">
     <title>What's my weather?</title>
 	<link rel="stylesheet" href="css/weather-styles.css">
-	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-	<script src="https://use.fontawesome.com/17670a7f7c.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,900" rel="stylesheet">
+	<link rel="stylesheet" href="css/weather-icons.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>   
 	<script src="js/weather.js"></script>
 </head>
 <body>
 	<div class="wrapper">
 		<div class="content">
-			<div class="row">
-				<h1 id="location"></h1>
+			<div class="row location">
+				<span id="location"></span>
 			</div>	
-			<span id="weather"></span>
-			<div class="row" id="illustration">
-				<i class="fa fa-cloud fa-5x"></i>
+			<div class="row weather">
+				<span id="weather"></span>
+			</div>	
+			
+			<div class="row illustration">
+				<i class="wi wi-lg" id="icon"></i>
 			</div>
-			<div class="row">
-				<span id="temperature"></span><span id="unit">c</span>
+			<div class="row temperature">
+				<span id="temperature"></span><span id="unit"></span>
 			</div>	
 			<div class="row">
-				<button id="changeunits">Use &deg;f</button>
+				<button class="button" id="changeunits">Use &deg;f</button>
 			</div>	
 		</div>
 	</div>

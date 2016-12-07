@@ -36,6 +36,31 @@
   - Open Weather Map request only one API call every 10 minutes, so better to calculate?
 
 */
+
+var currentUnit = 'c';
+
+
+function convertTemp(){ 
+var oldTemp = parseInt($('#temperature').text());
+$('#changeunits').html('Use &deg;' + currentUnit);
+  if (currentUnit == 'c'){    
+    var newTemp = (oldTemp * 9/5) +32;
+    currentUnit = 'f';
+    $('#temperature').html(Math.round( newTemp ));    
+  }
+
+  else if (currentUnit == 'f'){
+    var newTemp = (oldTemp -32) * 5/9;
+    currentUnit = 'c';
+    $('#temperature').html(Math.round( newTemp ));       
+  }
+
+  $('#unit').html('&deg;' + currentUnit);
+};
+
+
+
+
 function retrieveWeather(){
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
@@ -43,9 +68,13 @@ if (navigator.geolocation) {
     $.ajax( {
           url: apiUrl,
           success: function(data) {
+            //Once api call has succeeded, set location, temperature, icon and weather
             $('#location').html(data.name);
-            $('#weather').html(data.weather[0].main);
-            $('#temperature').html(Math.round( data.main.temp ) + '&deg;');            
+            $('#weather').html(data.weather[0].description);
+            /*xxx Set correct Background colour */ 
+            $('#icon').addClass('wi-owm-' + data.weather[0].id);
+            $('#temperature').html(Math.round( data.main.temp ));
+            $('#unit').html('&deg;' + currentUnit);                       
            }  
 
       }); 
@@ -55,4 +84,19 @@ if (navigator.geolocation) {
 
   $(document).ready(function() {
   retrieveWeather();
+
+  $( "#changeunits" ).click(function() {
+  convertTemp();
+  });
 });
+
+
+
+
+
+
+
+
+
+
+
