@@ -152,7 +152,7 @@ if (navigator.geolocation) {
     /* Switch to using Dark Sky API - 1000 calls a day, but over https to avoid crossorigin issues*/  
 
     //var apiUrl = "http://api.openweathermap.org/data/2.5/weather?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&appid=f8d9912dca4764faaafe918d616b7a9c&units=metric";    
-    var apiUrl = "https://api.darksky.net/forecast/91a4eb6f34d0070d01e2d6c69fa35825/" 
+    var apiUrl = "https://crossorgin.me/https://api.darksky.net/forecast/91a4eb6f34d0070d01e2d6c69fa35825/" 
                 + position.coords.latitude + "," + position.coords.longitude + "," + (Math.floor(Date.now() / 1000)) 
                 + "?units=si&exclude=minutely,hourly,alerts,flags";
     $.ajax( {
