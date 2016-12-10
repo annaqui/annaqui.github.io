@@ -39,10 +39,35 @@
 
 var currentUnit = 'c';
 
+function chooseColor(temp){
+//This chooses a background colour, on a log scale - to be used for background gradients to represent min & max temps
+//https://jsfiddle.net/t1gdhokg/
+// Temperature will be between -60 and  60
+//Hues 240 to 180 are temps between -60 and 0
+//Hues 180 to 0 are temps between 0 and 60     
+    var mint = 0;
+    var maxt = 60;    
+   
+    if (temp > 0 ) {
+      var minh = Math.log(180);
+      var maxh = Math.log(1);
+      var scale = (maxh-minh) / (maxt-mint);
+      return Math.exp(minh + scale*(temp-mint));
+    }
+    else {
+     temp = temp *-1;
+     var minh = Math.log(60);
+     var maxh = Math.log(1);
+     var scale = (maxh-minh) / (maxt-mint);
+     return 240 - Math.exp(minh + scale*(temp-mint));
+    }
+ };
+
 
 function convertTemp(){ 
 var oldTemp = parseInt($('#temperature').text());
-$('#changeunits').html('Use &deg;' + currentUnit);
+$('#buttonUnit').html(currentUnit);
+  
   if (currentUnit == 'c'){    
     var newTemp = (oldTemp * 9/5) +32;
     currentUnit = 'f';
@@ -71,11 +96,25 @@ if (navigator.geolocation) {
             //Once api call has succeeded, set location, temperature, icon and weather
             $('#location').html(data.name);
             $('#weather').html(data.weather[0].description);
-            /*xxx Set correct Background colour */ 
+            /*xxx Set background gradient according to min and max temperatures (with alpha value variation in case they are too close together to be noticably different)
+            HSLA values - avoid muddy colours 
+            To Do - Change lightness and darkness according to time of day
+            */ 
+            var gradientMinMax = "linear-gradient(0deg, hsla(" + chooseColor(data.main.temp_max) + ",100%,50%,0.7), hsla(" + chooseColor(data.main.temp_min) + ",100%,50%,0.5))";
+            $(".wrapper").css("background", gradientMinMax);
+            //End background setting bit
+
             $('#icon').addClass('wi-owm-' + data.weather[0].id);
             $('#temperature').html(Math.round( data.main.temp ));
-            $('#unit').html('&deg;' + currentUnit);                       
-           }  
+               if (currentUnit == 'f'){
+              currentUnit = 'c';
+              convertTemp();
+            }
+            $('#unit').html('&deg;' + currentUnit);
+            var date = new Date();
+            $('#updatedtime').html(date.toLocaleTimeString() + ', ' + date.toLocaleDateString());                       
+           } 
+
 
       }); 
    });
@@ -87,6 +126,9 @@ if (navigator.geolocation) {
 
   $( "#changeunits" ).click(function() {
   convertTemp();
+  });
+  $( "#refresh" ).click(function() {
+  retrieveWeather();
   });
 });
 

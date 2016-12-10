@@ -6,7 +6,8 @@
 	<link rel="stylesheet" href="css/weather-styles.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,900" rel="stylesheet">
 	<link rel="stylesheet" href="css/weather-icons.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>   
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>	
+	<script src="https://use.fontawesome.com/52afa37801.js"></script>
 	<script src="js/weather.js"></script>
 </head>
 <body>
@@ -26,7 +27,13 @@
 				<span id="temperature"></span><span id="unit"></span>
 			</div>	
 			<div class="row">
-				<button class="button" id="changeunits">Use &deg;f</button>
+				<button class="button" id="changeunits"><i class="fa fa-thermometer-three-quarters" aria-hidden="true"></i>
+switch to &deg;<span id="buttonUnit">f</span></button>
+				<button class="button" id="refresh"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+			</div>
+			<div class="end">
+				<p>Last updated at <span id="updatedtime"></span></p>
+
 			</div>	
 		</div>
 	</div>

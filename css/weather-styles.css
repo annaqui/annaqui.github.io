@@ -8,7 +8,6 @@ body {
 
 
 .wrapper{
-	background: linear-gradient(0deg, rgba(0,100,255, 0.1), rgba(0,100,255, 0.4)); /* Standard syntax */
 	height: 100vh;
 	display: flex;
 	justify-content: center;
@@ -54,8 +53,9 @@ body {
 	font-weight: 100;
 }
 .weather {
-	font-size: 48px;
+	font-size: 36px;
 	color: #212121;
+	width: 100%;
 }
 
 .illustration {
@@ -64,8 +64,13 @@ body {
 
 .temperature{
 	color: #212121;
-	font-size: 60px;
+	font-size: 54px;
 	font-weight: bold;
+}
+
+.end {
+	font-size: 12px;
+	font-weight: 300;
 }
 
 .wi-lg {
