@@ -166,7 +166,7 @@ if (navigator.geolocation) {
             /*xxx Set background gradient according to min and max temperatures (with alpha value variation in case they are too close together to be noticably different)
             HSLA values - avoid muddy colours 
             To Do - Change lightness and darkness according to time of day*/          
-            var gradientMinMax = "linear-gradient(0deg, hsla(" +  chooseColor(data.daily.data[0].temperatureMax) + ",100%,50%,0.7), hsla(" + chooseColor(data.daily.data[0].temperatureMin) + ",100%,50%,0.5))";
+            var gradientMinMax = "linear-gradient(0deg, hsla(" +  chooseColor(data.daily.data[0].temperatureMax) + ",50%,50%,0.7), hsla(" + chooseColor(data.daily.data[0].temperatureMin) + ",50%,50%,0.5))";
             $(".wrapper").css("background", gradientMinMax);
             //End background setting bit
 
