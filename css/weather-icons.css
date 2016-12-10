@@ -1877,3 +1877,13 @@
 
 }
 
+.wi-ds-partly-cloudy-night:before {
+  content: "\f083";
+
+}
+.wi-ds-partly-cloudy-day:before {
+  content: "\f002";
+
+}
+
+
