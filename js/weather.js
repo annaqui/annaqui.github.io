@@ -156,6 +156,8 @@ if (navigator.geolocation) {
                 + position.coords.latitude + "," + position.coords.longitude + "," + (Math.floor(Date.now() / 1000)) 
                 + "?units=si&exclude=minutely,hourly,alerts,flags";
     $.ajax( {
+          dataType: 'jsonp',
+          crossDomain: true,
           url: apiUrl,
           success: function(data) {
             //Once api call has succeeded, set location, temperature, icon and weather
@@ -163,15 +165,12 @@ if (navigator.geolocation) {
             $('#weather').html(data.currently.summary);
             /*xxx Set background gradient according to min and max temperatures (with alpha value variation in case they are too close together to be noticably different)
             HSLA values - avoid muddy colours 
-            To Do - Change lightness and darkness according to time of day*/
-            console.log(data.daily.data[0].temperatureMax);
-            console.log(data.daily.data[0].temperatureMin);
-            
-            var gradientMinMax = "linear-gradient(0deg, hsla(" + chooseColor(data.daily.data.temperatureMax) + ",100%,50%,0.7), hsla(" + chooseColor(data.daily.data.temperatureMin) + ",100%,50%,0.5))";
+            To Do - Change lightness and darkness according to time of day*/          
+            var gradientMinMax = "linear-gradient(0deg, hsla(" +  chooseColor(data.daily.data[0].temperatureMax) + ",100%,50%,0.7), hsla(" + chooseColor(data.daily.data[0].temperatureMin) + ",100%,50%,0.5))";
             $(".wrapper").css("background", gradientMinMax);
             //End background setting bit
 
-            //$('#icon').addClass('wi-owm-' + data.weather[0].id);
+            $('#icon').addClass('wi-ds-' + data.currently.icon);
             //Set Temperature
             $('#temperature').html(Math.round( data.currently.temperature ));
                if (currentUnit == 'f'){

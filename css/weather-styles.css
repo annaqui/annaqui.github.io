@@ -76,3 +76,44 @@ body {
 .wi-lg {
 	font-size: 90px;
 }
+
+/* Fonts for weather icons */
+.wi-ds-clear-day{
+  content: "\f00d";
+
+}
+.wi-ds-clear-night{
+  content: "\f02e";
+
+}
+.wi-ds-rain{
+  content: "\f019";
+}
+.wi-ds-snow{
+  content: "\f01b";
+
+}
+.wi-ds-sleet{
+  content: "\f0b5";
+}
+.wi-ds-wind{
+  content: "\f050";
+
+}
+.wi-ds-fog{
+  content: "\f014";
+
+}
+.wi-ds-cloudy{
+  content: "\f013";
+
+}
+.wi-ds-cloudy-day{
+  content: "\f002";
+
+}
+.wi-ds-cloudy-night{
+  content: "\f031";
+
+}
+
