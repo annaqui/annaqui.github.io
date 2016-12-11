@@ -99,6 +99,8 @@ Here is the example response:
 var currentUnit = 'c';
 var date = new Date();
 
+
+
 function chooseColor(temp){
 //This chooses a background colour, on a log scale - to be used for background gradients to represent min & max temps
 //https://jsfiddle.net/t1gdhokg/
@@ -149,24 +151,46 @@ $('#buttonUnit').html(currentUnit);
 function retrieveWeather(){
 if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
-    /* Switch to using Dark Sky API - 1000 calls a day, but over https to avoid crossorigin issues*/  
 
-    //var apiUrl = "http://api.openweathermap.org/data/2.5/weather?lat=" + position.coords.latitude + "&lon=" + position.coords.longitude + "&appid=f8d9912dca4764faaafe918d616b7a9c&units=metric";    
-    var apiUrl = "https://api.darksky.net/forecast/91a4eb6f34d0070d01e2d6c69fa35825/" 
+      var mapApiUrl = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" 
+      + position.coords.latitude + "," +  position.coords.longitude 
+      + "&key=AIzaSyCXJM8-lbm9uuRtLYN1-POwOMrOVpa1mvQ";
+    
+     //Find and set Town from Lat/Long - Using Google Maps Geocoding API 40.714224,-73.961452
+    $.ajax( {
+      crossDomain: true,
+      type: "GET",
+      url: mapApiUrl,
+      success: function(data){
+        //data.results[0].address_components[2].long_name
+        for (var i = 0; i < data.results[0].address_components.length; i++) {
+          for (var j = 0; data.results[0].address_components[i].types.length; i++){
+            if (data.results[0].address_components[i].types[j] == "locality"){
+             $('#location').html(data.results[0].address_components[i].long_name);
+              break;
+            }
+          }
+        };
+      }
+    }); 
+    /* Switch to using Dark Sky API - 1000 calls a day, but over https to avoid crossorigin issues*/   
+    var weatherApiUrl = "https://api.darksky.net/forecast/91a4eb6f34d0070d01e2d6c69fa35825/" 
                 + position.coords.latitude + "," + position.coords.longitude + "," + (Math.floor(Date.now() / 1000)) 
                 + "?units=si&exclude=minutely,hourly,alerts,flags";
     $.ajax( {
           dataType: 'jsonp',
           crossDomain: true,
-          url: apiUrl,
+          type: "GET",
+          url: weatherApiUrl,
           success: function(data) {
             //Once api call has succeeded, set location, temperature, icon and weather
-            $('#location').html('London');
             $('#weather').html(data.currently.summary);
             /*xxx Set background gradient according to min and max temperatures (with alpha value variation in case they are too close together to be noticably different)
             HSLA values - avoid muddy colours 
             To Do - Change lightness and darkness according to time of day*/          
-            var gradientMinMax = "linear-gradient(0deg, hsla(" +  chooseColor(data.daily.data[0].temperatureMax) + ",50%,50%,0.7), hsla(" + chooseColor(data.daily.data[0].temperatureMin) + ",50%,50%,0.5))";
+            var gradientMinMax = "linear-gradient(0deg, hsla(" +  chooseColor(data.daily.data[0].temperatureMax) + 
+            ",50%,50%,0.7), hsla(" + chooseColor(data.daily.data[0].temperatureMin) + ",50%,50%,0.5))";
+            
             $(".wrapper").css("background", gradientMinMax);
             //End background setting bit
 
@@ -178,9 +202,7 @@ if (navigator.geolocation) {
               convertTemp();
             }
             $('#unit').html('&deg;' + currentUnit);
-            $('#updatedtime').html(date);
-                                   
-                                  
+            $('#updatedtime').html(date);                                 
            } 
       }); 
    });
