@@ -163,11 +163,12 @@ if (navigator.geolocation) {
       url: mapApiUrl,
       success: function(data){
         //data.results[0].address_components[2].long_name
+        findLocation:
         for (var i = 0; i < data.results[0].address_components.length; i++) {
           for (var j = 0; data.results[0].address_components[i].types.length; i++){
             if (data.results[0].address_components[i].types[j] == "locality"){
              $('#location').html(data.results[0].address_components[i].long_name);
-              break;
+              break findLocation;
             }
           }
         };
