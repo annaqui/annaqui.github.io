@@ -78,42 +78,52 @@ body {
 }
 
 /* Fonts for weather icons */
-.wi-ds-clear-day{
+.wi-ds-clear-day:before {
   content: "\f00d";
 
 }
-.wi-ds-clear-night{
+.wi-ds-clear-night:before {
   content: "\f02e";
 
 }
-.wi-ds-rain{
+.wi-ds-rain:before {
   content: "\f019";
 }
-.wi-ds-snow{
+.wi-ds-snow:before {
   content: "\f01b";
 
 }
-.wi-ds-sleet{
+.wi-ds-sleet:before {
   content: "\f0b5";
 }
-.wi-ds-wind{
+.wi-ds-wind:before {
   content: "\f050";
 
 }
-.wi-ds-fog{
+.wi-ds-fog:before {
   content: "\f014";
 
 }
-.wi-ds-cloudy{
+.wi-ds-cloudy:before {
   content: "\f013";
 
 }
-.wi-ds-cloudy-day{
+.wi-ds-cloudy-day:before {
   content: "\f002";
 
 }
-.wi-ds-cloudy-night{
+.wi-ds-cloudy-night:before {
   content: "\f031";
 
 }
+
+.wi-ds-partly-cloudy-night:before {
+  content: "\f083";
+
+}
+.wi-ds-partly-cloudy-day:before {
+  content: "\f002";
+
+}
+
 
